@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>To-Do List</title>
+</head>
+<body>
+    <div class="main">
+        <h1>This is my Todo List</h1>
+        <div class="form">
+            <form action="/addtask" method="post">
+                <div class="toAdd">
+                    <label for="task">What do you wish to finish?</label>
+                    <input type="text" id="task" name="task">
+                    <button type="submit">Add Task</button>
+                </div>
+            
+                <h3>Added Task</h3>
+                <div class="toAdd">
+                    <% for( var i = 0; i < tasks.length; i++){ %>
+                        <li><input type="checkbox" name="check" value="<%= tasks[i] %>" /> <%= tasks[i] %> </li>
+                    <% } %>
+                    <button formaction="/removetask">Remove</button>
+                </div>
+            </form>
+        </div>
+        <div class="complete">
+            <h3>Completed Task</h3>
+            <% for(var i = 0; i < complete.length; i++){ %>
+                <li><input type="checkbox" checked><%= complete[i] %> </li>
+          <% } %>
+        </div>
+    </div>
+</body>
+</html>
